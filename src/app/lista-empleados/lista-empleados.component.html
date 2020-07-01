@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="container"> <br>
+        <h4> Lista de Empleados</h4>
+        <hr>
+        <select class="btn btn-info dropdown-toggle" [(ngModel)]="filterPost" (click)="filterEmployee()">
+            <option value="" selected>Filtro de Empleados</option>
+            <option value="" >Todos</option>
+            <option>Contratado</option>
+            <option>Outsourcing</option>
+        </select>
+        <br><br>
+        <table class="table table-sm" *ngIf="tabla; else Empty">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Código</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido Paterno</th>
+                    <th scope="col">Apellido Materno</th>
+                    <th scope="col">Correo Electronico</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of datos;let i = index">
+                    <th scope=" row ">
+                        {{ i+1 }}
+                    </th>
+                    <td>{{ item.id }}</td>
+                    <td>
+                        <i class="fa fa-user" aria-hidden="true" [ngStyle]="{color:'#004867'}"></i> &nbsp; {{ item.data.nombre }}
+                    </td>
+                    <td>{{ item.data.apellidoPat }}</td>
+                    <td>{{ item.data.apellidoMat }}</td>
+                    <td>{{ item.data.email}}</td>
+                    <td>{{ item.data.cargo}} </td>
+                    <td>
+                        <p id="estado" [ngStyle]="{background: item.data.estado == 'Contratado' ? '#20A8E3' : '#EA9521'}">{{ item.data.estado}}</p>
+                    </td>
+                    <td>
+                        <a class=" btn btn-info " type="button " (click)="editEmployee(item.id) ">
+                            <li class=" fa fa-edit " [ngStyle]="{color: 'white'} "></li>
+                        </a>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger " type="button " (click)="deleteEmployee(item.id) ">
+                            <li class=" fa fa-trash "></li>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ng-template #Empty>
+            <div style="text-align: center; ">
+                <p>No hay registro de Empleados</p>
+            </div>
+
+        </ng-template>
+    </div>
+</div>

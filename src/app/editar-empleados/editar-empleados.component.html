@@ -1,0 +1,20 @@
+<div class="container">
+    <h4>Editar Empleados</h4>
+    <input type="text" class="form-control" [(ngModel)]="formulario.id" name="id" disabled>
+    <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="formulario.nombre" name="nombre">
+    <input type="text" class="form-control" placeholder="Apellido Paterno" [(ngModel)]="formulario.apellidoPat" name="apellidoPat">
+    <input type="text" class="form-control" placeholder="Apellido Materno" [(ngModel)]="formulario.apellidoMat" name="apellidoMat">
+    <input type="text" class="form-control" placeholder="Correo Electronico" [(ngModel)]="formulario.email" name="email">
+    <input type="text" class="form-control" placeholder="Cargo" [(ngModel)]="formulario.cargo" name="cargo">
+
+    <div style="text-align: center; ">
+        <label> SSeleccione el estado de contratación  del Empleado</label><br>
+        <select class="btn btn-warning dropdown-toggle" [(ngModel)]="formulario.estado" name="estado">
+            <option value="" selected>Estado del Empleado</option>
+            <option>Contratado</option>
+            <option>Outsourcing</option>
+            </select><br>
+    </div>
+    <button type="submit" class="btn btn-success" (click)="editEmployee();"> Agregar</button>
+
+</div>

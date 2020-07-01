@@ -1,0 +1,16 @@
+* {
+    margin-top: 20px;
+}
+
+span::after {
+    content: "\0000a0   ";
+}
+
+select {
+    color: white;
+}
+
+option {
+    background-color: white;
+    color: black;
+}

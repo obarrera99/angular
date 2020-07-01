@@ -1,0 +1,12 @@
+* {
+    margin-top: 20px;
+}
+
+span::after {
+    content: "\0000a0   ";
+}
+
+option {
+    background-color: white;
+    color: black;
+}
